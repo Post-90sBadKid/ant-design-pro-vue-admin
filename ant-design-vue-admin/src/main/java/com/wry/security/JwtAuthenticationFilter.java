@@ -38,9 +38,6 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-        if (token == null) {
-            throw new BusinessException(RestResultStatus.AUTHENTICATION_ERROR);
-        }
         //如果请求头中有token,则进行解析，并且设置认证信息
         if (JwtUtil.verify(token)) {
             String username = JwtUtil.getClaim(token);
