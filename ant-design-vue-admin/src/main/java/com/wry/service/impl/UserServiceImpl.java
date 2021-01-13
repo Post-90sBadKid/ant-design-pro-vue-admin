@@ -11,12 +11,12 @@ import com.wry.common.enums.PermissionType;
 import com.wry.common.exception.BusinessException;
 import com.wry.common.result.RestResultStatus;
 import com.wry.mapper.UserMapper;
-import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.Permission;
 import com.wry.model.entity.User;
 import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.ServicePermissionVO;
+import com.wry.model.vo.UserPageVO;
 import com.wry.service.RoleService;
 import com.wry.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -122,7 +122,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public PageWrapper<UserPageDTO> queryUserPage(UserQuery userQuery) {
+    public PageWrapper<UserPageVO> queryUserPage(UserQuery userQuery) {
         Page<User> page = new Page<>(userQuery.getPageNo(), userQuery.getPageSize());
         QueryWrapper<User> wrapper = new QueryWrapper<>();
 
@@ -138,9 +138,9 @@ public class UserServiceImpl implements UserService {
         wrapper.orderBy(true, userQuery.isAsc(), Optional.ofNullable(userQuery.getSortField()).orElse("id"));
         Page<User> userPage = userMapper.selectPage(page, wrapper);
         List<User> users = userPage.getRecords();
-        List<UserPageDTO> list = new ArrayList<>();
+        List<UserPageVO> list = new ArrayList<>();
         for (User user : users) {
-            UserPageDTO userDTO = new UserPageDTO();
+            UserPageVO userDTO = new UserPageVO();
             BeanUtils.copyProperties(user, userDTO);
             userDTO.setRoleIds(Arrays.asList(getRoleIds(user)));
             userDTO.setRoleNames(getRoleNames(user));

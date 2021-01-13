@@ -3,11 +3,11 @@ package com.wry.controller;
 
 import com.wry.common.result.RestResultStatus;
 import com.wry.common.result.Result;
-import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.User;
 import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.UserBatchDeleteVO;
+import com.wry.model.vo.UserPageVO;
 import com.wry.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,7 +27,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public Result<PageWrapper<UserPageDTO>> queryUserList(UserQuery userQuery) {
+    public Result<PageWrapper<UserPageVO>> queryUserList(UserQuery userQuery) {
         return Result.success(userService.queryUserPage(userQuery));
     }
 

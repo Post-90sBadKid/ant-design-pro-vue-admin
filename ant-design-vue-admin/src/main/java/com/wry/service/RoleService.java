@@ -1,8 +1,8 @@
 package com.wry.service;
 
-import com.wry.model.dto.RoleDTO;
 import com.wry.model.entity.Permission;
 import com.wry.model.entity.Role;
+import com.wry.model.vo.RoleVO;
 
 import java.util.List;
 import java.util.Map;
@@ -46,7 +46,7 @@ public interface RoleService {
      *
      * @return
      */
-    List<RoleDTO> queryAllRole();
+    List<RoleVO> queryAllRole();
 
     /**
      * 新增

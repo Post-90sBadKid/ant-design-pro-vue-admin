@@ -2,13 +2,14 @@ package com.wry.controller;
 
 
 import com.wry.common.result.Result;
-import com.wry.model.dto.RoleDTO;
 import com.wry.model.entity.Role;
+import com.wry.model.vo.RoleVO;
 import com.wry.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("role")
@@ -18,7 +19,7 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping
-    public Result<List<RoleDTO>> queryRoleList() {
+    public Result<List<RoleVO>> queryRoleList() {
         return Result.success(roleService.queryAllRole());
     }
 

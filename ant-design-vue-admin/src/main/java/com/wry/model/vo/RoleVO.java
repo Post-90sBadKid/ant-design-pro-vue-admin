@@ -1,4 +1,4 @@
-package com.wry.model.dto;
+package com.wry.model.vo;
 
 import com.wry.model.entity.Role;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Data
-public class RoleDTO {
+public class RoleVO {
 
     private Long id;
     /**
@@ -34,10 +34,10 @@ public class RoleDTO {
      */
     private List<Long> permissionIds;
 
-    public RoleDTO() {
+    public RoleVO() {
     }
 
-    public RoleDTO(Role role) {
+    public RoleVO(Role role) {
         this.id = role.getId();
         this.role = role.getRole();
         this.name = role.getName();

@@ -2,9 +2,9 @@ package com.wry.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wry.mapper.RoleMapper;
-import com.wry.model.dto.RoleDTO;
 import com.wry.model.entity.Permission;
 import com.wry.model.entity.Role;
+import com.wry.model.vo.RoleVO;
 import com.wry.service.PermissionService;
 import com.wry.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,9 +63,9 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<RoleDTO> queryAllRole() {
+    public List<RoleVO> queryAllRole() {
         return roleMapper.selectList(new QueryWrapper<>()).stream()
-                .map(RoleDTO::new)
+                .map(RoleVO::new)
                 .collect(Collectors.toList());
     }
 

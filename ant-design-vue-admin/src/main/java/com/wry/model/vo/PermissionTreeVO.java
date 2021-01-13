@@ -3,7 +3,6 @@ package com.wry.model.vo;
 
 import com.wry.common.enums.PermissionType;
 import com.wry.model.dto.PermissionTreeDTO;
-import com.wry.model.entity.Permission;
 import lombok.Data;
 
 import java.util.List;

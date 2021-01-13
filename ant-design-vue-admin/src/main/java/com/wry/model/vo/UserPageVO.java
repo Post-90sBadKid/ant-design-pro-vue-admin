@@ -1,4 +1,4 @@
-package com.wry.model.dto;
+package com.wry.model.vo;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Data
-public class UserPageDTO {
+public class UserPageVO {
     /**
      * 编号
      */

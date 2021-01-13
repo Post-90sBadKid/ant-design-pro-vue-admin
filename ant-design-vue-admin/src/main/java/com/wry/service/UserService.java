@@ -2,11 +2,11 @@ package com.wry.service;
 
 
 import com.wry.common.exception.BusinessException;
-import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.User;
 import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.ServicePermissionVO;
+import com.wry.model.vo.UserPageVO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -68,7 +68,7 @@ public interface UserService extends UserDetailsService {
      * @param userQuery
      * @return
      */
-    PageWrapper<UserPageDTO> queryUserPage(UserQuery userQuery);
+    PageWrapper<UserPageVO> queryUserPage(UserQuery userQuery);
 
     /**
      * 更新
