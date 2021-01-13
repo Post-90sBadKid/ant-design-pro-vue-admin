@@ -1,0 +1,16 @@
+server:
+  port: 9998
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ant_design_admin?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: sinopacs
+    hikari:
+      max-lifetime: 1000000
+logging:
+  level:
+    com.wry.mapper: debug
+    root: info
+
