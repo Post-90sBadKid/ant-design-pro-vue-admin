@@ -1,54 +1,35 @@
 package com.wry.model.dto;
 
 import com.wry.model.entity.Permission;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
 
 
 @Data
+@ApiModel
 public class PermissionTreeDTO {
-
-    /**
-     * 编号
-     */
+    @ApiModelProperty("编号")
     private Long id;
-
-    /**
-     * 资源名称
-     */
+    @ApiModelProperty("资源名称")
     private String name;
-    /**
-     * 资源类型
-     */
+    @ApiModelProperty("资源类型")
     private Integer type;
-    /**
-     * 权限字符串
-     */
+    @ApiModelProperty("权限字符串")
     private String permission;
-    /**
-     * 父编号
-     */
+    @ApiModelProperty("父编号")
     private Long parentId;
-    /**
-     * 父编号列表
-     */
+    @ApiModelProperty("父编号列表")
     private String parentIds;
-    /**
-     * 图标
-     */
+    @ApiModelProperty("图标")
     private String icon;
-    /**
-     * 配置
-     */
+    @ApiModelProperty("配置")
     private String config;
-    /**
-     * 状态
-     */
+    @ApiModelProperty("状态")
     private Integer status;
-    /**
-     * 排序
-     */
+    @ApiModelProperty("排序")
     private Long sort;
 
     private List<PermissionTreeDTO> children;
