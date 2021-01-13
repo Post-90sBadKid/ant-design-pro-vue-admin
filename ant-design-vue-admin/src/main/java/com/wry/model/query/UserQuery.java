@@ -1,5 +1,6 @@
 package com.wry.model.query;
 
+import com.wry.model.page.PageQuery;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

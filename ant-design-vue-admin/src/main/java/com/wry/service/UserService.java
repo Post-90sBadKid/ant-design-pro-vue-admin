@@ -4,7 +4,7 @@ package com.wry.service;
 import com.wry.common.exception.BusinessException;
 import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.User;
-import com.wry.model.query.PageWrapper;
+import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.ServicePermissionVO;
 import org.springframework.security.core.userdetails.UserDetailsService;

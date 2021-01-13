@@ -1,4 +1,4 @@
-package com.wry.model.query;
+package com.wry.model.page;
 
 
 

@@ -1,4 +1,4 @@
-package com.wry.model.query;
+package com.wry.model.page;
 
 import lombok.Data;
 
@@ -11,5 +11,5 @@ public class PageQuery {
     /**
      * 排序方式默认 ASC
      */
-    private boolean acs;
+    private boolean asc;
 }

@@ -5,7 +5,7 @@ import com.wry.common.result.RestResultStatus;
 import com.wry.common.result.Result;
 import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.User;
-import com.wry.model.query.PageWrapper;
+import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.UserBatchDeleteVO;
 import com.wry.service.UserService;

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wry.common.result.Result;
 import com.wry.model.dto.PermissionTreeDTO;
 import com.wry.model.entity.Permission;
-import com.wry.model.query.PageWrapper;
+import com.wry.model.page.PageWrapper;
 import com.wry.model.vo.PermissionTreeVO;
 import com.wry.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;

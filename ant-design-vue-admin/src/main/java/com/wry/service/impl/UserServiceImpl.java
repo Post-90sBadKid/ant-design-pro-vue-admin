@@ -14,7 +14,7 @@ import com.wry.mapper.UserMapper;
 import com.wry.model.dto.UserPageDTO;
 import com.wry.model.entity.Permission;
 import com.wry.model.entity.User;
-import com.wry.model.query.PageWrapper;
+import com.wry.model.page.PageWrapper;
 import com.wry.model.query.UserQuery;
 import com.wry.model.vo.ServicePermissionVO;
 import com.wry.service.RoleService;
@@ -135,7 +135,7 @@ public class UserServiceImpl implements UserService {
         Optional.ofNullable(userQuery.getUsername()).ifPresent((item) ->
                 wrapper.like(StringUtils.hasLength(userQuery.getUsername()), "username", userQuery.getUsername())
         );
-        wrapper.orderBy(true, userQuery.isAcs(), Optional.ofNullable(userQuery.getSortField()).orElse("id"));
+        wrapper.orderBy(true, userQuery.isAsc(), Optional.ofNullable(userQuery.getSortField()).orElse("id"));
         Page<User> userPage = userMapper.selectPage(page, wrapper);
         List<User> users = userPage.getRecords();
         List<UserPageDTO> list = new ArrayList<>();
