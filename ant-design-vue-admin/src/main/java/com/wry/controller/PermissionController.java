@@ -8,6 +8,8 @@ import com.wry.model.entity.Permission;
 import com.wry.model.page.PageWrapper;
 import com.wry.model.vo.PermissionTreeVO;
 import com.wry.service.PermissionService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
+@Api(tags = "权限")
 @RestController
 @RequestMapping("permission")
 public class PermissionController {
@@ -23,8 +25,8 @@ public class PermissionController {
     @Autowired
     private PermissionService permissionService;
 
+    @ApiOperation("树状结构数据")
     @GetMapping("no-pager")
-//    @RequiresPermissions("permission:view")
     public Result<PageWrapper<PermissionTreeVO>> queryPermissionTreeNoPager() {
         List<PermissionTreeDTO> permissionTreeDTOS = permissionService.queryPermissionTree();
         PageWrapper<PermissionTreeVO> objectPageWrapper = new PageWrapper<>();
@@ -32,22 +34,22 @@ public class PermissionController {
         return Result.success(objectPageWrapper);
     }
 
+    @ApiOperation("树状结构")
     @GetMapping("tree")
-//    @RequiresPermissions("permission:view")
     public Result queryPermissionTree() {
         return Result.success(permissionService.queryPermissionTree());
     }
 
+    @ApiOperation("修改")
     @PutMapping
-//    @RequiresPermissions("permission:update")
     public Result updatePermission(@RequestBody Permission permission) {
         permission.setConfig(generateConfig(permission, permission.getConfig()));
         permissionService.updateNotNull(permission);
         return Result.success();
     }
 
+    @ApiOperation("新增")
     @PostMapping
-//    @RequiresPermissions("permission:create")
     public Result createPermission(@RequestBody Permission permission) {
         permission.setConfig(generateConfig(permission, permission.getConfig()));
         permissionService.createPermission(permission);
@@ -69,8 +71,8 @@ public class PermissionController {
         return config;
     }
 
+    @ApiOperation("删除")
     @DeleteMapping("{id}")
-//    @RequiresPermissions("permission:delete")
     public Result deletePermission(@PathVariable Long id) {
         permissionService.deleteById(id);
         return Result.success();

@@ -7,6 +7,8 @@ import com.wry.model.vo.ServicePermissionVO;
 import com.wry.model.vo.UserInfoVO;
 import com.wry.service.PermissionService;
 import com.wry.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,13 +20,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-@Slf4j
+@Api(tags = "首页")
 @RestController
 public class IndexController {
 
     @Autowired
     private UserService userService;
 
+    @ApiOperation("用户信息")
     @GetMapping("user/info")
     public Result<UserInfoVO> getUserInfo() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -38,6 +41,7 @@ public class IndexController {
         return Result.success(userInfoVO);
     }
 
+    @ApiOperation("菜单列表")
     @GetMapping("user/nav")
     public Result<List<ServicePermissionVO>> getUserNav() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -45,7 +49,7 @@ public class IndexController {
         return Result.success(list);
     }
 
-
+//    @ApiOperation("初始化数据库")
 //    @GetMapping("datasource/initialize")
 //    public Result initializeDatasource() {
 //        DataSource dataSource = SpringUtils.getBean(DataSource.class);

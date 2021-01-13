@@ -1,11 +1,11 @@
-package com.wry.model.vo;
+package com.wry.model.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
-public class UserBatchDeleteVO {
+public class UserBatchDeleteDTO {
     @NotEmpty
     private Long[] ids;
 }
