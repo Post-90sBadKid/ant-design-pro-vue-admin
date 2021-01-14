@@ -67,7 +67,9 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public List<Permission> queryPermissions(Set<String> permissionIds) {
-        return  permissionMapper.selectBatchIds(permissionIds);
+        QueryWrapper wrapper = new QueryWrapper<Permission>().orderByAsc("sort");
+        wrapper.in("id", permissionIds);
+        return permissionMapper.selectList(wrapper);
     }
 
     @Override
