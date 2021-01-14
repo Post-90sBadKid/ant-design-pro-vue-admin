@@ -135,7 +135,7 @@ public class UserServiceImpl implements UserService {
         Optional.ofNullable(userQuery.getUsername()).ifPresent((item) ->
                 wrapper.like(StringUtils.hasLength(userQuery.getUsername()), "username", userQuery.getUsername())
         );
-        wrapper.orderBy(true, userQuery.isAsc(), Optional.ofNullable(userQuery.getSortField()).orElse("id"));
+        wrapper.orderBy(true,userQuery.isAsc(), userQuery.getSortField());
         Page<User> userPage = userMapper.selectPage(page, wrapper);
         List<User> users = userPage.getRecords();
         List<UserPageVO> list = new ArrayList<>();

@@ -21,8 +21,6 @@ public class PermissionServiceImpl implements PermissionService {
     @Autowired
     private PermissionMapper permissionMapper;
 
-    @Autowired
-    private RoleService roleService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
